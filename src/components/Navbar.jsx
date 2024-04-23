@@ -63,15 +63,15 @@ const Navbar = () => {
               <div className="flex space-x-2">
                 <Link
                   href="/"
-                  className={`${pathName === "/" ? "bg-black" : ""}
-                    text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                  className={`${pathName === "/" ? "bg-black/40" : ""}
+                    text-white hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/properties"
-                  className={`${pathName === "/properties" ? "bg-black" : ""}
-                    text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                  className={`${pathName === "/properties" ? "bg-black/40" : ""}
+                    text-white hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2`}
                 >
                   Properties
                 </Link>
@@ -79,9 +79,9 @@ const Navbar = () => {
                   <Link
                     href="/properties/add"
                     className={`${
-                      pathName === "/properties/add" ? "bg-black" : ""
+                      pathName === "/properties/add" ? "bg-black/40" : ""
                     }
-                    text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    text-white hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2`}
                   >
                     Add Property
                   </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
           {!isLoggedIn && (
             <div className="hidden md:block md:ml-6">
               <div className="flex items-center">
-                <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+                <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2">
                   <FaGoogle className="text-white mr-2" />
                   <span>Login or Register</span>
                 </button>
@@ -203,14 +203,14 @@ const Navbar = () => {
           <div className="space-y-1 px-2 pb-3 pt-2">
             <Link
               href="/"
-              className={`${pathName === "/" ? "bg-black" : ""}
+              className={`${pathName === "/" ? "bg-black/40" : ""}
               text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Home
             </Link>
             <Link
               href="/properties"
-              className={`${pathName === "/properties" ? "bg-black" : ""}
+              className={`${pathName === "/properties" ? "bg-black/40" : ""}
               text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Properties
@@ -218,7 +218,9 @@ const Navbar = () => {
             {isLoggedIn && (
               <Link
                 href="/properties/add"
-                className={`${pathName === "/properties/add" ? "bg-black" : ""}
+                className={`${
+                  pathName === "/properties/add" ? "bg-black/40" : ""
+                }
               text-white block rounded-md px-3 py-2 text-base font-medium`}
               >
                 Add Property
@@ -226,7 +228,7 @@ const Navbar = () => {
             )}
 
             {!isLoggedIn && (
-              <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4">
+              <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2 my-4">
                 {/* <i className="fa-brands fa-google mr-2"></i> */}
                 <FaGoogle className="text-white mr-2" />
                 <span>Login or Register</span>
