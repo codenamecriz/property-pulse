@@ -1,23 +1,7 @@
 import React from "react";
-// import properties from "@/properties.json";
 import PropertyCard from "@/components/Properties/PropertyCard";
 import Link from "next/link";
-
-async function fetchProperties() {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_DOMAIN}/propertydata`
-    );
-
-    if (!response) {
-      throw new Error("Failed to fetch data.");
-    }
-
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { fetchProperties } from "@/utils/requests";
 
 const HomeProperties = async () => {
   const properties = await fetchProperties();
