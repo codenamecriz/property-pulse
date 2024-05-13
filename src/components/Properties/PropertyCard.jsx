@@ -20,6 +20,7 @@ const PropertyCard = ({ property }) => {
       return `${rates.nightly.toLocaleString()}/night`;
     }
   };
+
   return (
     // <!-- Listing 1 -->
     <div className="rounded-xl shadow-md relative">
