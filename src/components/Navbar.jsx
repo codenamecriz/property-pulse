@@ -20,14 +20,14 @@ const Navbar = () => {
 
   useEffect(() => {
     const setAuthProviders = async () => {
-      const response = await getProviders();
-      setProviders(response);
+      const res = await getProviders();
+      setProviders(res);
     };
 
     setAuthProviders();
   }, []);
 
-  console.log(providers);
+  console.log("Providers: " + providers);
 
   return (
     <nav className="bg-blue-700 border-b border-blue-500">
@@ -107,10 +107,17 @@ const Navbar = () => {
           {!session && (
             <div className="hidden md:block md:ml-6">
               <div className="flex items-center">
-                <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2">
-                  <FaGoogle className="text-white mr-2" />
-                  <span>Login or Register</span>
-                </button>
+                {providers &&
+                  Object.values(providers).map((provider, index) => (
+                    <button
+                      key={index}
+                      onClick={() => signIn(provider.Id)}
+                      className="flex items-center text-white bg-gray-700 hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2"
+                    >
+                      <FaGoogle className="text-white mr-2" />
+                      <span>Login or Register</span>
+                    </button>
+                  ))}
               </div>
             </div>
           )}
@@ -240,13 +247,18 @@ const Navbar = () => {
               </Link>
             )}
 
-            {!session && (
-              <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2 my-4">
-                {/* <i className="fa-brands fa-google mr-2"></i> */}
-                <FaGoogle className="text-white mr-2" />
-                <span>Login or Register</span>
-              </button>
-            )}
+            {!session &&
+              providers &&
+              Object.values(providers).map((provider, index) => (
+                <button
+                  key={index}
+                  onClick={() => signIn(provider.Id)}
+                  className="flex items-center text-white bg-gray-700 hover:bg-gray-900/40 hover:text-white rounded-md px-3 py-2"
+                >
+                  <FaGoogle className="text-white mr-2" />
+                  <span>Login or Register</span>
+                </button>
+              ))}
           </div>
         </div>
       )}
