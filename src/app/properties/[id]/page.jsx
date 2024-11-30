@@ -9,6 +9,7 @@ import PropertyDetails from "@/components/Properties/PropertyDetails";
 import PropertyImages from "@/components/Properties/PropertyImages";
 import { FaArrowLeft } from "react-icons/fa";
 import Spinner from "@/components/Spinner";
+import { convertToSerializableObject } from "@/utils/convertToOject";
 
 const PropertyPage = () => {
   const { id } = useParams();
